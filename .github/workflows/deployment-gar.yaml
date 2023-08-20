@@ -46,6 +46,15 @@ jobs:
         run: gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin "https://$REGION-docker.pkg.dev"
 
       # Push image to Google Artifact Registry
-      - name: Push api image to Google Container Registry
+      - name: Push api image to Google Artifact Registry
         run: |-
           docker push "$REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
+
+      # Deploy to cloud run
+      - name: Deploy api to cloud run
+        uses: google-github-actions/deploy-cloudrun@main
+        with:
+          service: "${{ env.SERVICE_NAME }}"
+          # image: "gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
+          image: "${{env.REGION}}-docker.pkg.dev/${{env.PROJECT_ID}}/${{env.REPOSITORY}}/${{env.IMAGE}}:${{ github.sha }}"
+          region: "${{ env.REGION }}"
