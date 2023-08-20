@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    return {"message": f"It runs without docker composr", "secrets":os.getenv('SECRET')}
+    return {"message": f"If secret somesr", "secrets":os.getenv('SECRET')}
 
 
 
