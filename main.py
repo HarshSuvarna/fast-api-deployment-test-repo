@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    return {"message": f"Hello www", "secressssssst":os.getenv('SECRET')}
+    return {"message": f"Hello TEST WORLD", "secrets":os.getenv('SECRET')}
 
 
 
