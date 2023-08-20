@@ -16,7 +16,7 @@ jobs:
       SERVICE_NAME: ${{ secrets.SERVICE_NAME }}
       REGION: asia-south1
       REPOSITORY: api-deployment-test
-      IMAGE: main
+      IMAGE: dev
 
     steps:
       - name: Checkout
