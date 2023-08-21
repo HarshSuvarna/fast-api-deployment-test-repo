@@ -59,7 +59,7 @@ jobs:
 
       # Deploy to cloud run
       - name: Deploy api to cloud run
-        uses: google-github-actions/deploy-cloudrun@main # @main here is the branch name
+        uses: google-github-actions/deploy-cloudrun@v1 # @main here is the branch name
         with:
           service: "${{ env.SERVICE_NAME }}"
           # image: "gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
