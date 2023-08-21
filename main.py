@@ -8,4 +8,4 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    return {"message": f"If sssecret somesr", "secrets":os.getenv('SECRET')}
+    return {"message": "Working Fine", "secrets":os.getenv('SECRET')}
